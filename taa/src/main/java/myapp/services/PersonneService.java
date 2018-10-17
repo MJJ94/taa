@@ -1,5 +1,6 @@
 package myapp.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,16 @@ public class PersonneService {
 	SportDao sportDao;
 
 	@GetMapping(value = "/{id}")
-	public Personne getPersonne(@PathVariable("id") String id) {
+	public Personne getPersonne(@PathVariable("id") Long id) {
 		// sportDao.giveSportNautique();
-		Optional<Personne> personne = personneDao.findById(Long.parseLong(id));
+		Optional<Personne> personne = personneDao.findById(id);
+		return personne.get();
+	}
+	
+	@GetMapping(value = "/name/{name}")
+	public Personne getPersonneByName(@PathVariable("name") String name) {
+		// sportDao.giveSportNautique();
+		Optional<Personne> personne = personneDao.findByName(name);
 		return personne.get();
 	}
 
@@ -44,6 +52,13 @@ public class PersonneService {
 	public void addPerson(@RequestBody Personne p) {
 		personneDao.save(p);
 	}
+	
+//	@PostMapping("/lieux")
+//	public void addLieux(@RequestBody List<Lieu> lieux) {
+//		for(Lieu l: lieux) {
+//			perso
+//		}
+//	}
 
 	@DeleteMapping("/personne")
 	public void deletePerson(@RequestBody Personne p) {
