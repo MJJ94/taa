@@ -12,8 +12,8 @@ import myapp.javaObjects.Personne;
 import myapp.javaObjects.Sport;
 
 @Transactional
-public interface PersonneDao extends JpaRepository<Personne, Long>{
+public interface PersonneDao extends JpaRepository<Personne, Long> {
 	@Query("select p from Personne p Where p.name = ?1")
-	public Optional<Personne> findByName(String name);
-	
+	public Personne findByName(String name);
+
 }

@@ -40,25 +40,18 @@ public class PersonneService {
 		Optional<Personne> personne = personneDao.findById(id);
 		return personne.get();
 	}
-	
+
 	@GetMapping(value = "/name/{name}")
 	public Personne getPersonneByName(@PathVariable("name") String name) {
 		// sportDao.giveSportNautique();
-		Optional<Personne> personne = personneDao.findByName(name);
-		return personne.get();
+		Personne personne = personneDao.findByName(name);
+		return personne;
 	}
 
 	@PostMapping("/personne")
 	public void addPerson(@RequestBody Personne p) {
 		personneDao.save(p);
 	}
-	
-//	@PostMapping("/lieux")
-//	public void addLieux(@RequestBody List<Lieu> lieux) {
-//		for(Lieu l: lieux) {
-//			perso
-//		}
-//	}
 
 	@DeleteMapping("/personne")
 	public void deletePerson(@RequestBody Personne p) {

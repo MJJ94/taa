@@ -34,12 +34,12 @@ public class LieuService {
 	}
 	
 	@PostMapping("/lieu")
-	public void addPerson(@RequestBody Lieu l) {
+	public void addLieu(@RequestBody Lieu l) {
 		lieuDao.save(l);
 	}
 
 	@DeleteMapping("/lieu")
-	public void deletePerson(@RequestBody Lieu l) {
+	public void deleteLieu(@RequestBody Lieu l) {
 		lieuDao.delete(l);
 
 	}
