@@ -5,7 +5,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { AppComponent } from './app.component';
 import { PlaceComponentComponent } from './place-component/place-component.component';
 import { SportComponentComponent } from './sport-component/sport-component.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,8 @@ import { SportComponentComponent } from './sport-component/sport-component.compo
   imports: [
     BrowserModule,
     FormsModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
