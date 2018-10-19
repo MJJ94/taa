@@ -13,16 +13,16 @@ export class PlaceComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   let villJean = {id:1 , itemName:"Viljean"}
-   let beaulieu = {id:1 , itemName:"Beaulieu"}
-   this.places = [villJean, beaulieu]
-   this.dropdownSettings = { 
-    singleSelection: false, 
-    text:"Select Places",
-    selectAllText:'Select All',
-    unSelectAllText:'UnSelect All',
-    enableSearchFilter: true,
-    classes:"myclass custom-class"
-  }; 
+    let villJean = { id: 1, itemName: "Viljean" }
+    let beaulieu = { id: 1, itemName: "Beaulieu" }
+    this.places = [villJean, beaulieu]
+    this.dropdownSettings = {
+      singleSelection: false,
+      text: "Select Places",
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      classes: "myclass custom-class"
+    };
   }
 }

@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { AppComponent } from './app.component';
 import { PlaceComponentComponent } from './place-component/place-component.component';
+import { SportComponentComponent } from './sport-component/sport-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlaceComponentComponent
+    PlaceComponentComponent,
+    SportComponentComponent
   ],
   imports: [
     BrowserModule,

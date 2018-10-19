@@ -1,12 +1,1 @@
-<p>
-  place-component works!
-</p>
-
-<!--
-<select [(ngModel)]="selectedPlace">
-  <option  *ngFor="let place of places" value="{{place}}">
-    {{place}}
-  </option>
-</select>
--->
 <angular2-multiselect [data]="places"[(ngModel)]= "selectedPlaces" [settings]="dropdownSettings" ></angular2-multiselect>
