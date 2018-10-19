@@ -24,17 +24,21 @@ public class Personne implements Serializable{
     private List<Lieu> lieux;
     
     private List<Sport> sports;
+    
+    private String email;
 
     public Personne() {
     }
 
-    public Personne(String name, List<Lieu> lieux, List<Sport>sports) {
+    public Personne(String name, List<Lieu> lieux, List<Sport>sports,String email) {
         this.name = name;
         this.lieux = lieux;
         this.sports = sports;
+        this.email=email;
     }
 
-    public Personne(String name) {
+
+	public Personne(String name) {
         this.name = name;
     }
 
@@ -56,6 +60,14 @@ public class Personne implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}	
 
     @ManyToMany
     public List<Lieu> getLieu() {
