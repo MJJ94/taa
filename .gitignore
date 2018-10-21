@@ -2,3 +2,4 @@
 .project
 /.settings/*
 /.metadata/
+taa-back/src/main/resources/application.properties
