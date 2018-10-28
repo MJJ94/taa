@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { PlaceComponentComponent } from './place-component/place-component.component';
 import { SportComponentComponent } from './sport-component/sport-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponentComponent } from './login-component/login-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     PlaceComponentComponent,
-    SportComponentComponent
+    SportComponentComponent,
+    LoginComponentComponent
   ],
   imports: [
     BrowserModule,
