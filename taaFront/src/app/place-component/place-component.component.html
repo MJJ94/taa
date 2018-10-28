@@ -1,1 +1,7 @@
-<angular2-multiselect [data]="places"[(ngModel)]= "selectedPlaces" [settings]="dropdownSettings" ></angular2-multiselect>
+<angular2-multiselect [data]="places"[(ngModel)]= "selectedPlaces" [settings]="dropdownSettings" >
+    <c-item>
+        <ng-template let-item="item">
+          <label>{{item.name}}</label>
+        </ng-template>
+</c-item>  
+</angular2-multiselect>

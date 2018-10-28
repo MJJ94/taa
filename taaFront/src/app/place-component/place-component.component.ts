@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceServiceService } from '../place-service.service';
+import { PlaceInterface } from '../place-interface';
 
 @Component({
   selector: 'app-place-component',
@@ -9,17 +10,14 @@ import { PlaceServiceService } from '../place-service.service';
 export class PlaceComponentComponent implements OnInit {
   selectedPlaces = [];
   selectedPlace = "";
-  places = [];
+  places=[];
   dropdownSettings = {};
-  place = { id: Number, name: String }
   constructor(private serv: PlaceServiceService) { }
 
   ngOnInit() {
-    this.places = this.getAllPlaces();
-    console.log("places: ", this.places)
-    let villJean = { id: 1, itemName: "Viljean" }
-    let beaulieu = { id: 1, itemName: "Beaulieu" }
-    //this.places = [villJean, beaulieu]
+    this.getAllPlaces()
+    //this.places.push({id:1 , name:"Beaulieu"})
+    console.log("places: ", this.places.length)
     this.dropdownSettings = {
       singleSelection: false,
       text: "Select Places",
@@ -31,13 +29,9 @@ export class PlaceComponentComponent implements OnInit {
   }
 
   getAllPlaces() {
-    let data1 = [];
-    this.serv.getAllPlaces().subscribe(data => {
-      console.log(data)
-      data1 = data as any[];
-      console.log("data1: ", data1)
-      data1.forEach(element => this.places.push(element))
+    this.serv.getAllPlaces().subscribe((data: PlaceInterface[]) => {
+      this.places = data;
+      console.log("data: " , this.places)
     }, err => { console.log(err.message) })
-    return data1;
   }
 }
