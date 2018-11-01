@@ -24,12 +24,12 @@ export class NewAccountComponentComponent implements OnInit {
   constructor(private personService:PersonServiceService, private placeService: PlaceServiceService, private sportService:SportServiceService) { }
 
   handleSignUp() {
-    this.personService.addPerson().subscribe(
-      response => console.log("resp: " , response),
-      err => console.log("err: " , err)
-    )
+    console.log(JSON.stringify(this.selectedPlaces))
     if ((this.firstName.length > 0) && (this.lastName.length > 0) && (this.email.length > 0) && (this.password.length > 0)) {
-      console.log("working")
+      this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlaces, this.selectedSports).subscribe(
+        response => console.log("resp: " , response),
+        err => console.log("err: " , err)
+      )
     }
   }
 

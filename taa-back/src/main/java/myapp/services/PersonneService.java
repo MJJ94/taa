@@ -43,14 +43,12 @@ public class PersonneService {
 	@ApiResponse(code=200,message="Ok",response=Personne.class)
 	
 	public Personne getPersonne(@PathVariable("id") Long id) {
-		// sportDao.giveSportNautique();
 		Optional<Personne> personne = personneDao.findById(id);
 		return personne.get();
 	}
 
 	@GetMapping(value = "/name/{name}")
 	public Personne getPersonneByName(@PathVariable("name") String name) {
-		// sportDao.giveSportNautique();
 		Personne personne = personneDao.findByName(name);
 		return personne;
 	}

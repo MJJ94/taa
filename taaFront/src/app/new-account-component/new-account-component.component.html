@@ -7,7 +7,11 @@
   <br>
   Password: <input type="text" [(ngModel)]="password" name="password">
   <br>
-  <angular2-multiselect [data]="places" [(ngModel)]="selectedPlaces" [settings]="placeDropdownSettings" name="placeList">
+  <angular2-multiselect 
+  [data]="places" 
+  [(ngModel)]="selectedPlaces" 
+  [settings]="placeDropdownSettings" 
+  name="selectedPlaces" >
     <c-item>
       <ng-template let-item="item">
         <label>{{item.name}}</label>
@@ -15,7 +19,11 @@
     </c-item>
   </angular2-multiselect>
   <br>
-  <angular2-multiselect [data]="sports" [(ngModel)]="selectedSport" [settings]="sportDropdownSettings" name="sportList">
+  <angular2-multiselect 
+  [data]="sports" 
+  [(ngModel)]="selectedSports" 
+  [settings]="sportDropdownSettings" 
+  name="selectedSports" >
     <c-item>
       <ng-template let-item="item">
         <label>{{item.name}}</label>
