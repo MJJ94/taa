@@ -1,0 +1,27 @@
+<form>
+  First name: <input type="text" [(ngModel)]="firstName" name="firstName">
+  <br>
+  Last name: <input type="text" [(ngModel)]="lastName" name="lastName">
+  <br>
+  Email: <input type="text" [(ngModel)]="email" name="email">
+  <br>
+  Password: <input type="text" [(ngModel)]="password" name="password">
+  <br>
+  <angular2-multiselect [data]="places" [(ngModel)]="selectedPlaces" [settings]="placeDropdownSettings" name="placeList">
+    <c-item>
+      <ng-template let-item="item">
+        <label>{{item.name}}</label>
+      </ng-template>
+    </c-item>
+  </angular2-multiselect>
+  <br>
+  <angular2-multiselect [data]="sports" [(ngModel)]="selectedSport" [settings]="sportDropdownSettings" name="sportList">
+    <c-item>
+      <ng-template let-item="item">
+        <label>{{item.name}}</label>
+      </ng-template>
+    </c-item>
+  </angular2-multiselect>
+
+  <button (click)="handleSignUp()">Sign up</button>
+</form>
