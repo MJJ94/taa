@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NewAccountService } from '../new-account.service';
 import { PlaceServiceService } from '../place-service.service';
 import { PlaceInterface } from '../place-interface';
 import { SportServiceService } from '../sport-service.service';
@@ -17,11 +16,9 @@ export class NewAccountComponentComponent implements OnInit {
   email = '';
   password = '';
   selectedPlaces = [];
-  selectedPlace = "";
   places=[];
   placeDropdownSettings = {};
   selectedSports = [];
-  selectedSport = "";
   sports = [];
   sportDropdownSettings = {};
   constructor(private personService:PersonServiceService, private placeService: PlaceServiceService, private sportService:SportServiceService) { }
