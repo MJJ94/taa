@@ -4,6 +4,7 @@ import { PlaceServiceService } from '../place-service.service';
 import { PlaceInterface } from '../place-interface';
 import { SportServiceService } from '../sport-service.service';
 import { ISport } from '../isport';
+import { PersonServiceService } from '../person-service.service';
 
 @Component({
   selector: 'app-new-account-component',
@@ -23,10 +24,10 @@ export class NewAccountComponentComponent implements OnInit {
   selectedSport = "";
   sports = [];
   sportDropdownSettings = {};
-  constructor(private newAccountService:NewAccountService, private placeService: PlaceServiceService, private sportService:SportServiceService) { }
+  constructor(private personService:PersonServiceService, private placeService: PlaceServiceService, private sportService:SportServiceService) { }
 
   handleSignUp() {
-    this.newAccountService.addPerson().subscribe(
+    this.personService.addPerson().subscribe(
       response => console.log("resp: " , response),
       err => console.log("err: " , err)
     )
