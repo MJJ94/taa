@@ -13,44 +13,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import myapp.dao.LieuDao;
-import myapp.dao.PersonneDao;
-import myapp.javaObjects.Lieu;
-import myapp.javaObjects.Personne;
+import myapp.dao.PlaceDao;
+import myapp.dao.PersonDao;
+import myapp.javaObjects.Place;
 
 @RestController
-@RequestMapping("/lieuService")
+@RequestMapping("/placeService")
 @CrossOrigin
-public class LieuService {
+public class PlaceService {
 
 	@Autowired
-	LieuDao lieuDao;
+	PlaceDao placeDao;
 
 	@Autowired
-	PersonneDao personneDao;
+	PersonDao personneDao;
 
 	@GetMapping(value = "/{id}")
-	public Lieu getLieu(@PathVariable("id") Long id) {
-		Optional<Lieu> lieu = lieuDao.findById(id);
+	public Place getLieu(@PathVariable("id") Long id) {
+		Optional<Place> place = placeDao.findById(id);
 
-		return lieu.get();
+		return place.get();
 	}
 
-	@GetMapping(value = "/lieux")
-	public List<Lieu> getAllLieux() {
-		List<Lieu> lieux = lieuDao.findAll();
+	@GetMapping(value = "/places")
+	public List<Place> getAllPlaces() {
+		List<Place> places = placeDao.findAll();
 
-		return lieux;
+		return places;
 	}
 
-	@PostMapping("/lieu")
-	public void addLieu(@RequestBody Lieu l) {
-		lieuDao.save(l);
+	@PostMapping("/place")
+	public void addPlace(@RequestBody Place l) {
+		placeDao.save(l);
 	}
 
-	@DeleteMapping("/lieu")
-	public void deleteLieu(@RequestBody Lieu l) {
-		lieuDao.delete(l);
+	@DeleteMapping("/place")
+	public void deletePlace(@RequestBody Place l) {
+		placeDao.delete(l);
 
 	}
 

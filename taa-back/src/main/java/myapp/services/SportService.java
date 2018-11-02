@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import myapp.dao.LieuDao;
-import myapp.dao.PersonneDao;
+import myapp.dao.PlaceDao;
+import myapp.dao.PersonDao;
 import myapp.dao.SportDao;
-import myapp.javaObjects.Lieu;
+import myapp.javaObjects.Place;
 import myapp.javaObjects.Sport;
 
 @RestController
@@ -30,10 +30,10 @@ public class SportService {
 	SportDao sportDao;
 	
 	@Autowired
-	PersonneDao personneDao;
+	PersonDao personneDao;
 
 	@Autowired
-	LieuDao lieuDao;
+	PlaceDao lieuDao;
 	
 	@GetMapping(value="/{id}")
 	public Sport getSport(@PathVariable("id") String id) {

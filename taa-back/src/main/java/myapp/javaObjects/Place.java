@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Lieu implements Serializable{
+public class Place implements Serializable{
 	 /**
 	 * 
 	 */
@@ -16,11 +16,11 @@ public class Lieu implements Serializable{
 
 	    private String name;
 
-	    public Lieu() {
+	    public Place() {
 	        super();
 	    }
 
-	    public Lieu(String name) {
+	    public Place(String name) {
 	        this.name = name;
 	    }
 
