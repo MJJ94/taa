@@ -15,10 +15,14 @@ export class PersonServiceService {
         'Authorization': 'my-auth-token'
       })
     }
-    return this.http.post("http://localhost:8080/personneService/personne", { "name": firstName, "lieu": selectedPlaces, "sport": selectedSports, "email": email });
+    return this.http.post("http://localhost:8080/personService/person", { "firstName": firstName,"lastName":lastName, "place": selectedPlaces, "sport": selectedSports, "email": email, "password": password });
   }
 
-  getPerson() {
-    return this.http.get("http://localhost:8080/personneService/3");
+  findPersonByEmail(email) {
+    return this.http.get("http://localhost:8080/personService/email/" + email);
+  }
+
+  findPersonById(id){
+    return this.http.get("http://localhost:8080/personService/" + id);
   }
 }

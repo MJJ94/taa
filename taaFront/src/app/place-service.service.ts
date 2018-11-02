@@ -8,6 +8,6 @@ export class PlaceServiceService {
 
   constructor(private http: HttpClient) { }
  getAllPlaces(){
-  return this.http.get<[PlaceInterface]>("http://localhost:8080/lieuService/lieux");
+  return this.http.get<[PlaceInterface]>("http://localhost:8080/placeService/places");
   }
 }

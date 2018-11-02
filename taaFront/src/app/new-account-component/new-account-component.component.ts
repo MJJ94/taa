@@ -4,6 +4,7 @@ import { PlaceInterface } from '../place-interface';
 import { SportServiceService } from '../sport-service.service';
 import { ISport } from '../isport';
 import { PersonServiceService } from '../person-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-account-component',
@@ -16,19 +17,19 @@ export class NewAccountComponentComponent implements OnInit {
   email = '';
   password = '';
   selectedPlaces = [];
-  places=[];
+  places = [];
   placeDropdownSettings = {};
   selectedSports = [];
   sports = [];
   sportDropdownSettings = {};
-  constructor(private personService:PersonServiceService, private placeService: PlaceServiceService, private sportService:SportServiceService) { }
+  constructor(private personService: PersonServiceService, private placeService: PlaceServiceService, private sportService: SportServiceService, private router: Router) { }
 
   handleSignUp() {
     console.log(JSON.stringify(this.selectedPlaces))
     if ((this.firstName.length > 0) && (this.lastName.length > 0) && (this.email.length > 0) && (this.password.length > 0)) {
       this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlaces, this.selectedSports).subscribe(
-        response => console.log("resp: " , response),
-        err => console.log("err: " , err)
+        response => this.router.navigateByUrl(""),
+        err => console.log("err: ", err)
       )
     }
   }
@@ -36,7 +37,6 @@ export class NewAccountComponentComponent implements OnInit {
   ngOnInit() {
     this.getAllPlaces()
     this.getAllSports()
-    //this.places.push({id:1 , name:"Beaulieu"})
     this.placeDropdownSettings = {
       singleSelection: false,
       text: "Select Places",
@@ -59,14 +59,14 @@ export class NewAccountComponentComponent implements OnInit {
   getAllPlaces() {
     this.placeService.getAllPlaces().subscribe((data: PlaceInterface[]) => {
       this.places = data;
-      console.log("data: " , this.places)
+      console.log("data: ", this.places)
     }, err => { console.log(err.message) })
   }
 
   getAllSports() {
     this.sportService.getAllSports().subscribe((data: ISport[]) => {
       this.sports = data;
-      console.log("data: " , this.sports)
+      console.log("data: ", this.sports)
     }, err => { console.log(err.message) })
   }
 
