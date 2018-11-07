@@ -16,11 +16,11 @@ export class NewAccountComponentComponent implements OnInit {
   lastName = '';
   email = '';
   password = '';
-  selectedPlaces = [];
-  places = [];
+  selectedPlaces: PlaceInterface[];
+  places: PlaceInterface[];
   placeDropdownSettings = {};
-  selectedSports = [];
-  sports = [];
+  selectedSports: ISport[];
+  sports: ISport[];
   sportDropdownSettings = {};
   constructor(private personService: PersonServiceService, private placeService: PlaceServiceService, private sportService: SportServiceService, private router: Router) { }
 
@@ -68,6 +68,11 @@ export class NewAccountComponentComponent implements OnInit {
       this.sports = data;
       console.log("data: ", this.sports)
     }, err => { console.log(err.message) })
+  }
+
+  placeOnChange(selectedPlaces: PlaceInterface) {
+    console.log(event)
+    
   }
 
 }
