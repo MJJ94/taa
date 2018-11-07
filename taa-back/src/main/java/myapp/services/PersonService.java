@@ -27,7 +27,6 @@ import myapp.javaObjects.Person;
 @Api(value= "PersonServiceApi", produces= MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin
 public class PersonService {
-//	EntityManager manager = EntityManagerHelper.getEntityManager();
 
 	@Autowired
 	PersonDao personDao;
@@ -46,12 +45,6 @@ public class PersonService {
 		Optional<Person> person = personDao.findById(id);
 		return person.get();
 	}
-
-//	@GetMapping(value = "/name/{name}")
-//	public Person getPersonByName(@PathVariable("name") String name) {
-//		Person person = personDao.findByName(name);
-//		return person;
-//	}
 
 	@PostMapping("/person")
 	public void addPerson(@RequestBody Person p) {
