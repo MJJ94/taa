@@ -1,4 +1,4 @@
-package myapp.config;
+package myapp.swaggerconfig;
 
 import java.util.Arrays;
 import java.util.HashSet;
