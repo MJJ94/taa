@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PersonServiceService } from '../person-service.service';
 import { PlaceInterface } from '../place-interface';
 import { ISport } from '../isport';
+import { WeatherServiceService } from '../weather-service.service';
+import { IWeather } from '../iweather';
 
 @Component({
   selector: 'app-user',
@@ -12,14 +14,41 @@ import { ISport } from '../isport';
 })
 export class UserComponent implements OnInit {
   user: Iperson
-  constructor(private activatedRoute: ActivatedRoute, private personService: PersonServiceService, private router: Router) { }
+  saturdaySports = [];
+  sundaySports = []
+  constructor(private activatedRoute: ActivatedRoute, private personService: PersonServiceService, private router: Router, private weatherService: WeatherServiceService) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     this.personService.findPersonById(id).subscribe(
       (res: Iperson) => {
         this.user = res
-        console.log("sports: " , this.user)
+        console.log("sports: ", this.user)
+        this.weatherService.getWeather(res.place.name).subscribe(
+          (res: IWeather[]) => {
+            console.log(res)
+            let saturday = res[0];
+            let sunday = res[1];
+            if (saturday.main === "Rain") {
+              this.user.sports.map((sport) => {
+                if (sport.covered === 1) {
+                  this.saturdaySports.push({ name: sport.name })
+                }
+              })
+            } else {
+              this.saturdaySports = this.user.sports
+            }
+            if (sunday.main === "Rain") {
+              this.user.sports.map((sport) => {
+                if (sport.covered === 1) {
+                  this.sundaySports.push({ name: sport.name })
+                }
+              })
+            } else {
+              this.sundaySports = this.user.sports
+            }
+          }
+        )
       }
     )
   }

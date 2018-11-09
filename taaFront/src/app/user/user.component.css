@@ -1,0 +1,7 @@
+.leftTable {
+    width: 50%; float: left;
+}
+
+.rightTable {
+    width: 50%; float: right;
+}

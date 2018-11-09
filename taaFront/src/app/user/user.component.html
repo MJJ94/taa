@@ -1,19 +1,60 @@
 <p>
-  hello {{user?.firstName}} {{user?.lastName}} your sports in {{user?.place.name}} are :
+  hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.name}} are :
 </p>
-<p-table [value]="user?.sports">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Sports</th>
-    </tr>
-  </ng-template>
+<div class="parent">
+  <div class="leftTable">
+    <p-table [value]="saturdaySports">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Saturday</th>
+        </tr>
+      </ng-template>
 
-  <ng-template pTemplate="body" let-sport>
-    <tr>
-      <td >
-        {{sport.name}}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+      <ng-template pTemplate="body" let-sport>
+        <tr>
+          <td>
+            {{sport.name}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="rightTable">
+    <p-table [value]="sundaySports">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Sunday</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-sport>
+        <tr>
+          <td>
+            {{sport.name}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<div>
+  <p>
+    All your sports are :
+  </p>
+  <p-table [value]="user?.sports">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Sports</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-sport>
+      <tr>
+        <td>
+          {{sport.name}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
 <button (click)=(logOutHandler())>log out</button>
