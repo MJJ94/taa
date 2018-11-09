@@ -2,6 +2,7 @@ package myapp.javaObjects;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Person implements Serializable{
@@ -30,8 +32,12 @@ public class Person implements Serializable{
     private String email;
     
     private String password;
+    
+    private List<Role> roles;
 
-    public Person() {
+    
+
+	public Person() {
     }
 
     public Person(String firstName, String lastName,List<Place> places, List<Sport>sports,String email, String password) {
@@ -42,6 +48,15 @@ public class Person implements Serializable{
         this.email=email;
         this.setPassword(password);
     }
+    public Person(String firstName, String lastName,String email, String password) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.password=password;
+        this.roles= new ArrayList<>();
+        this.roles.add(Role.ROLE_ADMIN);
+    }
+   
 
 
 	public Person(String firstName, String lastName) {
@@ -112,8 +127,18 @@ public class Person implements Serializable{
     public void setSport(List<Sport>sports) {
     	this.sports = sports;
     }
+    
+   
+    @Transient
+    public List<Role> getRoles() {
+		return roles;
+	}
 
-    @Override
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	@Override
     public String toString() {
     	List<String> placesString = new ArrayList<String>();
 		for(Place l:places) {
