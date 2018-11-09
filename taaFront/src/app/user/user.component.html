@@ -1,21 +1,17 @@
 <p>
-  hello {{user?.firstName}} {{user?.lastName}}
+  hello {{user?.firstName}} {{user?.lastName}} your sports in {{user?.place.name}} are :
 </p>
-<p-table [value]="values">
+<p-table [value]="user?.sports">
   <ng-template pTemplate="header">
     <tr>
-      <th>Places</th>
       <th>Sports</th>
     </tr>
   </ng-template>
 
-  <ng-template pTemplate="body" let-value>
+  <ng-template pTemplate="body" let-sport>
     <tr>
-      <td>
-        {{value.place}}
-      </td>
       <td >
-        {{value.sport}}
+        {{sport.name}}
       </td>
     </tr>
   </ng-template>

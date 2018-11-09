@@ -7,6 +7,6 @@ export interface Iperson {
     lastName: String,
     email: String,
     password: String,
-    place: PlaceInterface[],
-    sport: ISport[]
+    place: PlaceInterface,
+    sports: ISport[]
 }

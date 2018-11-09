@@ -12,39 +12,39 @@ import { ISport } from '../isport';
 })
 export class UserComponent implements OnInit {
   user: Iperson
-  values = []
   constructor(private activatedRoute: ActivatedRoute, private personService: PersonServiceService, private router: Router) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     this.personService.findPersonById(id).subscribe(
-      (res: Iperson) => { 
+      (res: Iperson) => {
         this.user = res
-        this.createTableValues()
-       }
+        console.log("sports: " , this.user)
+      }
     )
   }
 
-  createTableValues(){
-    if(this.user.place.length > this.user.sport.length){
+  /*
+  createTableValues() {
+    if (this.user.place.length > this.user.sport.length) {
       this.user.place.map((element) => {
-        this.values.push({place: element.name})
+        this.values.push({ place: element.name })
       })
-      for(let i = 0; i < this.user.sport.length; i++){
+      for (let i = 0; i < this.user.sport.length; i++) {
         this.values[i].sport = this.user.sport[i].name
       }
-    }else {
+    } else {
       this.user.sport.map((element) => {
-        this.values.push({sport: element.name})
+        this.values.push({ sport: element.name })
       })
-      for(let i = 0; i < this.user.place.length; i++){
+      for (let i = 0; i < this.user.place.length; i++) {
         this.values[i].place = this.user.place[i].name
       }
     }
 
 
   }
-
+*/
   logOutHandler() {
     this.router.navigate(['/home'])
   }

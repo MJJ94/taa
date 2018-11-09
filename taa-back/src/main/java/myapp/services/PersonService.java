@@ -32,7 +32,7 @@ public class PersonService {
 	PersonDao personDao;
 
 	@Autowired
-	PlaceDao lieuDao;
+	PlaceDao placeDao;
 
 	@Autowired
 	SportDao sportDao;
@@ -48,6 +48,9 @@ public class PersonService {
 
 	@PostMapping("/person")
 	public void addPerson(@RequestBody Person p) {
+		System.out.println("*********************************");
+		System.out.println(p.getPlace().getName());
+		System.out.println("*********************************");
 		personDao.save(p);
 	}
 

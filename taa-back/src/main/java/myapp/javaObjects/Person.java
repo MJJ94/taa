@@ -4,53 +4,60 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Person implements Serializable{
-    /**
+public class Person{
+	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7379999702455069154L;
 
 	private Long id;
 
-    private String firstName;
-    
-    private String lastName;
+	private String firstName;
 
-    private List<Place> places;
-    
-    private List<Sport> sports;
-    
-    private String email;
-    
-    private String password;
+	private String lastName;
 
-    public Person() {
-    }
+	private Place place;
 
-    public Person(String firstName, String lastName,List<Place> places, List<Sport>sports,String email, String password) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.places = places;
-        this.sports = sports;
-        this.email=email;
-        this.setPassword(password);
-    }
+	private List<Sport> sports;
 
+	private String email;
+
+	private String password;
+
+	public Person() {
+	}
+
+	public Person(String firstName, String lastName, Place place, List<Sport> sports, String email, String password) {
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.place = place;
+		this.sports = sports;
+		this.email = email;
+		this.setPassword(password);
+	}
+	
+	public Person(String lastName, Place place) {
+		this.lastName = lastName;
+		this.place = place;
+	}
 
 	public Person(String firstName, String lastName) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-    }
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+	}
 
-    @Column(nullable= false)
-    public String getFirstName() {
+	@Column(nullable = false)
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -58,7 +65,7 @@ public class Person implements Serializable{
 		this.firstName = firstName;
 	}
 
-    @Column(nullable= false)
+	@Column(nullable = false)
 	public String getLastName() {
 		return lastName;
 	}
@@ -68,26 +75,26 @@ public class Person implements Serializable{
 	}
 
 	@Id
-    @GeneratedValue
-    public Long getId() {
-        return id;
-    }
+	@GeneratedValue
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    @Column(nullable= false)
-    public String getEmail() {
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(nullable = false)
+	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
 
-    @Column(nullable= false)
-    public String getPassword() {
+	@Column(nullable = false)
+	public String getPassword() {
 		return password;
 	}
 
@@ -95,31 +102,27 @@ public class Person implements Serializable{
 		this.password = password;
 	}
 
+	@OneToOne
+	public Place getPlace() {
+		return this.place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
 	@ManyToMany
-    public List<Place> getPlace() {
-        return places;
-    }
+	public List<Sport> getSports() {
+		return sports;
+	}
 
-    public void setPlace(List<Place> places) {
-        this.places = places;
-    }
-    
-    @ManyToMany
-    public List<Sport> getSport() {
-    	return sports;
-    }
-    
-    public void setSport(List<Sport>sports) {
-    	this.sports = sports;
-    }
+	public void setSports(List<Sport> sports) {
+		this.sports = sports;
+	}
 
-    @Override
-    public String toString() {
-    	List<String> placesString = new ArrayList<String>();
-		for(Place l:places) {
-            placesString.add(l.getName());
-    		}
-        return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", places= " + placesString;
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", place= " + place.getName();
 
-    }
+	}
 }

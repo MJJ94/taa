@@ -6,12 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Sport implements Serializable {
+public class Sport{
 	/**
 	* 
 	*/
-	private static final long serialVersionUID = -2959708523025785328L;
-
+    @Id
+    @GeneratedValue
 	private Long id;
 
 	private String name;
@@ -23,9 +23,7 @@ public class Sport implements Serializable {
 	public Sport(String name) {
 		this.name = name;
 	}
-
-	@Id
-	@GeneratedValue
+	
 	public Long getId() {
 		return id;
 	}

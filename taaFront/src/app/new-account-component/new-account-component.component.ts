@@ -16,7 +16,7 @@ export class NewAccountComponentComponent implements OnInit {
   lastName = '';
   email = '';
   password = '';
-  selectedPlaces: PlaceInterface[];
+  selectedPlace: PlaceInterface[];
   places: PlaceInterface[];
   placeDropdownSettings = {};
   selectedSports: ISport[];
@@ -25,9 +25,9 @@ export class NewAccountComponentComponent implements OnInit {
   constructor(private personService: PersonServiceService, private placeService: PlaceServiceService, private sportService: SportServiceService, private router: Router) { }
 
   handleSignUp() {
-    console.log(JSON.stringify(this.selectedPlaces))
     if ((this.firstName.length > 0) && (this.lastName.length > 0) && (this.email.length > 0) && (this.password.length > 0)) {
-      this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlaces, this.selectedSports).subscribe(
+      console.log("place: " , this.selectedPlace[0])
+      this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlace[0], this.selectedSports).subscribe(
         response => this.router.navigateByUrl(""),
         err => console.log("err: ", err)
       )
@@ -38,10 +38,8 @@ export class NewAccountComponentComponent implements OnInit {
     this.getAllPlaces()
     this.getAllSports()
     this.placeDropdownSettings = {
-      singleSelection: false,
-      text: "Select Places",
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
+      singleSelection: true,
+      text: "Select Place",
       enableSearchFilter: true,
       classes: "myclass custom-class"
     };
@@ -68,11 +66,6 @@ export class NewAccountComponentComponent implements OnInit {
       this.sports = data;
       console.log("data: ", this.sports)
     }, err => { console.log(err.message) })
-  }
-
-  placeOnChange(selectedPlaces: PlaceInterface) {
-    console.log(event)
-    
   }
 
 }
