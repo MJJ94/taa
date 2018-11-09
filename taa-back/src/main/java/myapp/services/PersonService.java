@@ -48,9 +48,6 @@ public class PersonService {
 
 	@PostMapping("/person")
 	public void addPerson(@RequestBody Person p) {
-		System.out.println("*********************************");
-		System.out.println(p.getPlace().getName());
-		System.out.println("*********************************");
 		personDao.save(p);
 	}
 
