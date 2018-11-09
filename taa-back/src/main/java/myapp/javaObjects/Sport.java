@@ -14,6 +14,8 @@ public class Sport{
     @GeneratedValue
 	private Long id;
 
+    private int covered;
+    
 	private String name;
 
 	public Sport() {
@@ -38,6 +40,14 @@ public class Sport{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getCovered() {
+		return covered;
+	}
+
+	public void setCovered(int covered) {
+		this.covered = covered;
 	}
 
 }
