@@ -1,25 +1,36 @@
 <form class="form">
-  First name*: 
+  First name*:
   <br>
-  <input class="input" type="text" [(ngModel)]="firstName" name="firstName">
+  <input class="input" type="text" [(ngModel)]="firstName" name="firstName" required #firstname="ngModel">
+  <div *ngIf="firstname.errors?.required">
+    First name is required.
+  </div>
   <br>
-  Last name*: 
+  Last name*:
   <br>
-  <input class="input" type="text" [(ngModel)]="lastName" name="lastName">
+  <input class="input" type="text" [(ngModel)]="lastName" name="lastName" required #lastname="ngModel">
+  <div *ngIf="lastname.errors?.required">
+    Last name is required.
+  </div>
   <br>
-  Email*: 
+  Email*:
   <br>
-  <input class="input" type="text" [(ngModel)]="email" name="email">
+  <input class="input" type="text" [(ngModel)]="email" name="email" required #emal="ngModel">
+  <div *ngIf="emal.errors?.required">
+    Email is required.
+  </div>
   <br>
-  Password*: 
+  Password*:
   <br>
-  <input class="input" type="password" [(ngModel)]="password" name="password">
-  <br>  
-  <angular2-multiselect 
-  [data]="places" 
-  [(ngModel)]="selectedPlace" 
-  [settings]="placeDropdownSettings" 
-  name="selectedPlace">
+  <input class="input" type="password" [(ngModel)]="password" name="password" required minlength="5" #pasword="ngModel">
+  <div *ngIf="pasword.errors?.minlength">
+    Password must be at least 6 characters long.
+  </div>
+  <div *ngIf="pasword.errors?.required">
+      Password is required.
+    </div>
+  <br>
+  <angular2-multiselect [data]="places" [(ngModel)]="selectedPlace" [settings]="placeDropdownSettings" name="selectedPlace">
     <c-item>
       <ng-template let-item="item">
         <label>{{item.name}}</label>
@@ -27,11 +38,7 @@
     </c-item>
   </angular2-multiselect>
   <br>
-  <angular2-multiselect 
-  [data]="sports" 
-  [(ngModel)]="selectedSports" 
-  [settings]="sportDropdownSettings" 
-  name="selectedSports" >
+  <angular2-multiselect [data]="sports" [(ngModel)]="selectedSports" [settings]="sportDropdownSettings" name="selectedSports">
     <c-item>
       <ng-template let-item="item">
         <label>{{item.name}}</label>
