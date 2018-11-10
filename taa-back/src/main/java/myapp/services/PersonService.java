@@ -29,7 +29,7 @@ import myapp.dao.PersonDao;
 import myapp.dao.SportDao;
 import myapp.exception.CustomException;
 import myapp.javaObjects.Person;
-import myapp.securityConfig.JwtTokenProvider;
+//import myapp.securityConfig.JwtTokenProvider;
 
 
 @RestController
@@ -47,15 +47,15 @@ public class PersonService {
 	@Autowired
 	SportDao sportDao;
 
-	@Autowired
-	private JwtTokenProvider jwtTokenProvider;
-	@Autowired
-	private AuthenticationManager authenticationManager;
+//	@Autowired
+//	private JwtTokenProvider jwtTokenProvider;
+//	@Autowired
+//	private AuthenticationManager authenticationManager;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/id/{id}")
 	@ApiOperation("get person with spicific id")
 	@ApiResponse(code=200,message="Ok",response=Person.class)
 
@@ -64,12 +64,12 @@ public class PersonService {
 		return person.get();
 	}
 
-	@GetMapping("all")
+	@GetMapping("/person/all")
 	public List<Person> getAllPerson() {
 		return personDao.findAll();
 	}
 
-	@GetMapping(value = "/{firstName}")
+	@GetMapping(value = "/person/{firstName}")
 	public boolean existsByFirstName(@PathVariable("firstName") String firstName) {
 		return personDao.existsByFirstName(firstName);
 	}
@@ -92,28 +92,7 @@ public class PersonService {
 		return personDao.findByEmail(email);
 	}
 
-		@PostMapping("/signin")
-		public String signin(String firstNamme, String password) {
-			try {
-				authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(firstNamme, password));
-				return jwtTokenProvider.createToken(firstNamme, personDao.findByfirstName(firstNamme).getRoles());
-			} catch (AuthenticationException e) {
-				throw new CustomException("Invalid username/password supplied", HttpStatus.UNPROCESSABLE_ENTITY);
-			}
-		}
-		@PostMapping("/signup")
-		public String signup( @RequestBody Person person) {
-			System.out.println("test "+person.getFirstName());	
-			System.out.println("test "+person.getLastName());	
-			System.out.println("test "+person.getPassword());	
-			if (!personDao.existsByFirstName(person.getFirstName())) {
-				//person.setPassword(passwordEncoder.encode(person.getPassword()));
-				personDao.save(person);
-				return jwtTokenProvider.createToken(person.getFirstName(), person.getRoles());
-			} else {
-				throw new CustomException("Username is already in use", HttpStatus.UNPROCESSABLE_ENTITY);
-			}
-		}
+
 
 
 }
