@@ -1,0 +1,22 @@
+.form {
+    margin-top: 5%;
+    margin-left: 2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.input{
+    width: 50%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.button{
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}

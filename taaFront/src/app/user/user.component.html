@@ -1,60 +1,49 @@
-<p>
-  hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.name}} are :
-</p>
 <div class="parent">
-  <div class="leftTable">
-    <p-table [value]="saturdaySports">
-      <ng-template pTemplate="header">
+  <p class="text1">
+    hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.name}} are :
+  </p>
+  <div class="tableDiv">
+    <table class="leftTable">
+      <thead>
         <tr>
-          <th>Saturday</th>
+          <td class="header">Saturday</td>
         </tr>
-      </ng-template>
-
-      <ng-template pTemplate="body" let-sport>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of saturdaySports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="rightTable">
+      <thead>
         <tr>
-          <td>
-            {{sport.name}}
-          </td>
+          <td class="header">Sunday</td>
         </tr>
-      </ng-template>
-    </p-table>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of sundaySports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="rightTable">
-    <p-table [value]="sundaySports">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Sunday</th>
-        </tr>
-      </ng-template>
-
-      <ng-template pTemplate="body" let-sport>
-        <tr>
-          <td>
-            {{sport.name}}
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-</div>
-<div>
-  <p>
+  <p class="text">
     All your sports are :
   </p>
-  <p-table [value]="user?.sports">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Sports</th>
-      </tr>
-    </ng-template>
-
-    <ng-template pTemplate="body" let-sport>
-      <tr>
-        <td>
-          {{sport.name}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <div class="tableDiv">
+    <table class="allSportsTable">
+      <thead>
+        <tr>
+          <td class="header">Sports</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of user.sports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="button" (click)=(logOutHandler())>log out</button>
 </div>
-<button (click)=(logOutHandler())>log out</button>
