@@ -9,14 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 @Entity
-public class Person implements Serializable{
+public class Person {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -7379999702455069154L;
 
 	private Long id;
 
@@ -24,7 +24,7 @@ public class Person implements Serializable{
     
     private String lastName;
 
-    private List<Place> places;
+    private Place place;
     
     private List<Sport> sports;
     
@@ -39,10 +39,10 @@ public class Person implements Serializable{
 	public Person() {
     }
 
-    public Person(String firstName, String lastName,List<Place> places, List<Sport>sports,String email, String password) {
+    public Person(String firstName, String lastName,Place place, List<Sport>sports,String email, String password) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
-        this.places = places;
+        this.place = place;
         this.sports = sports;
         this.email=email;
         this.setPassword(password);
@@ -109,21 +109,21 @@ public class Person implements Serializable{
 		this.password = password;
 	}
 
-	@ManyToMany
-    public List<Place> getPlace() {
-        return places;
+	@OneToOne
+    public Place getPlace() {
+        return this.place;
     }
 
-    public void setPlace(List<Place> places) {
-        this.places = places;
+    public void setPlace(Place place) {
+        this.place = place;
     }
     
     @ManyToMany
-    public List<Sport> getSport() {
+    public List<Sport> getSports() {
     	return sports;
     }
     
-    public void setSport(List<Sport>sports) {
+    public void setSports(List<Sport>sports) {
     	this.sports = sports;
     }
     
@@ -139,11 +139,7 @@ public class Person implements Serializable{
 
 	@Override
     public String toString() {
-    	List<String> placesString = new ArrayList<String>();
-		for(Place l:places) {
-            placesString.add(l.getName());
-    		}
-        return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", places= " + placesString;
+        return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", place= " + this.place.getName();
 
     }
 }
