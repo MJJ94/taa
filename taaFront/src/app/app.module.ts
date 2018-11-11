@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     AngularMultiSelectModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

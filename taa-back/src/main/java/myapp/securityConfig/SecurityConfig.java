@@ -33,10 +33,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/**").permitAll()
 		.antMatchers(HttpMethod.PUT,"/**").permitAll()
 		.antMatchers(HttpMethod.PUT,"/person/").permitAll()
+		.antMatchers(HttpMethod.POST,"/**").permitAll()
 		.anyRequest().permitAll()
 		.and()
-		.formLogin()
 		;
+		
 
 	}
 

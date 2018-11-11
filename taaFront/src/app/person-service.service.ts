@@ -7,15 +7,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PersonServiceService {
 
   constructor(private http: HttpClient) { }
-  addPerson(firstName, lastName, email, password, selectedPlaces, selectedSports) {
-    console.log("selectedPlaces: " , selectedPlaces , " selectedSports: " , selectedSports)
+  addPerson(firstName, lastName, email, password, selectedPlace, selectedSports) {
+    console.log("selectedPlaces: " , selectedPlace , " selectedSports: " , selectedSports)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'my-auth-token'
       })
     }
-    return this.http.post("http://localhost:8080/personService/person", { "firstName": firstName,"lastName":lastName, "place": selectedPlaces, "sport": selectedSports, "email": email, "password": password });
+    return this.http.post("http://localhost:8080/personService/person", { "firstName": firstName,"lastName":lastName, "place": selectedPlace, "sports": selectedSports, "email": email, "password": password });
   }
 
   findPersonByEmail(email) {

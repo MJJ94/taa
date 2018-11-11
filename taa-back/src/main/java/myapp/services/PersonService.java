@@ -29,7 +29,7 @@ import myapp.dao.PersonDao;
 import myapp.dao.SportDao;
 import myapp.exception.CustomException;
 import myapp.javaObjects.Person;
-//import myapp.securityConfig.JwtTokenProvider;
+
 
 
 @RestController
@@ -42,7 +42,7 @@ public class PersonService {
 	PersonDao personDao;
 
 	@Autowired
-	PlaceDao lieuDao;
+	PlaceDao placeDao;
 
 	@Autowired
 	SportDao sportDao;

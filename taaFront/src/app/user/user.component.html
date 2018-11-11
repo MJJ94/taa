@@ -1,4 +1,49 @@
-<p>
-  hello {{person?.firstName}} {{person?.lastName}}
-</p>
-<button (click)=(logOutHandler())>log out</button>
+<div class="parent">
+  <p class="text1">
+    hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.name}} are :
+  </p>
+  <div class="tableDiv">
+    <table class="leftTable">
+      <thead>
+        <tr>
+          <td class="header">Saturday</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of saturdaySports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="rightTable">
+      <thead>
+        <tr>
+          <td class="header">Sunday</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of sundaySports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text">
+    All your sports are :
+  </p>
+  <div class="tableDiv">
+    <table class="allSportsTable">
+      <thead>
+        <tr>
+          <td class="header">Sports</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of user.sports">
+          <td class="bodyLine">{{sport.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="button" (click)=(logOutHandler())>log out</button>
+</div>

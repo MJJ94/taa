@@ -9,7 +9,7 @@ import java.util.HashSet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import io.jsonwebtoken.lang.Arrays;
+
 import myapp.dao.PersonDao;
 import myapp.javaObjects.Person;
 //import myapp.javaObjects.Role;

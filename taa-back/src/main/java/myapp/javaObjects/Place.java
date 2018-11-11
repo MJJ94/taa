@@ -1,17 +1,17 @@
 package myapp.javaObjects;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Place implements Serializable{
+public class Place{
 	 /**
 	 * 
 	 */
-	private static final long serialVersionUID = -2687755706786960033L;
 
+    @Id
+    @GeneratedValue
 	private Long id;
 
 	    private String name;
@@ -24,8 +24,6 @@ public class Place implements Serializable{
 	        this.name = name;
 	    }
 
-	    @Id
-	    @GeneratedValue
 	    public Long getId() {
 	        return id;
 	    }
