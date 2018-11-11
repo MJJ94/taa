@@ -27,8 +27,10 @@
     Password must be at least 6 characters long.
   </div>
   <div *ngIf="pasword.errors?.required">
-      Password is required.
-    </div>
+    Password is required.
+  </div>
+  <br>
+  Choose a city: 
   <br>
   <angular2-multiselect [data]="places" [(ngModel)]="selectedPlace" [settings]="placeDropdownSettings" name="selectedPlace">
     <c-item>
@@ -37,6 +39,8 @@
       </ng-template>
     </c-item>
   </angular2-multiselect>
+  <br>
+  Choose a sport: 
   <br>
   <angular2-multiselect [data]="sports" [(ngModel)]="selectedSports" [settings]="sportDropdownSettings" name="selectedSports">
     <c-item>

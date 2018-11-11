@@ -56,7 +56,7 @@ export class EditAccountComponent implements OnInit {
     this.personService.findPersonById
     this.placeDropdownSettings = {
       singleSelection: true,
-      text: "Select Place",
+      text: "Select City",
       enableSearchFilter: true,
       classes: "myclass custom-class"
     };

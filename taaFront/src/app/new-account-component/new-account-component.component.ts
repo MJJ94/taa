@@ -39,7 +39,7 @@ export class NewAccountComponentComponent implements OnInit {
     this.getAllSports()
     this.placeDropdownSettings = {
       singleSelection: true,
-      text: "Select Place",
+      text: "Select City",
       enableSearchFilter: true,
       classes: "myclass custom-class"
     };
@@ -62,10 +62,11 @@ export class NewAccountComponentComponent implements OnInit {
   }
 
   getAllSports() {
-    this.sportService.getAllSports().subscribe((data: ISport[]) => {
+    this.sportService.getAllSports().subscribe(
+      (data: ISport[]) => {
       this.sports = data;
-      console.log("data: ", this.sports)
-    }, err => { console.log(err.message) })
+    }, 
+    err => { console.log(err.message) })
   }
 
 }
