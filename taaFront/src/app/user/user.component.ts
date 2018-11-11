@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Iperson } from '../iperson';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonServiceService } from '../person-service.service';
-import { PlaceInterface } from '../place-interface';
-import { ISport } from '../isport';
 import { WeatherServiceService } from '../weather-service.service';
 import { IWeather } from '../iweather';
 
@@ -53,29 +51,12 @@ export class UserComponent implements OnInit {
     )
   }
 
-  /*
-  createTableValues() {
-    if (this.user.place.length > this.user.sport.length) {
-      this.user.place.map((element) => {
-        this.values.push({ place: element.name })
-      })
-      for (let i = 0; i < this.user.sport.length; i++) {
-        this.values[i].sport = this.user.sport[i].name
-      }
-    } else {
-      this.user.sport.map((element) => {
-        this.values.push({ sport: element.name })
-      })
-      for (let i = 0; i < this.user.place.length; i++) {
-        this.values[i].place = this.user.place[i].name
-      }
-    }
-
-
-  }
-*/
   logOutHandler() {
     this.router.navigate(['/home'])
+  }
+
+  editHandler() {
+    this.router.navigate(['/edit-account', this.user.id])
   }
 
 }

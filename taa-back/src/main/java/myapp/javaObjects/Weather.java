@@ -1,5 +1,9 @@
 package myapp.javaObjects;
+import java.util.Calendar;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Weather {
 
 	private String main;
@@ -28,6 +32,12 @@ public class Weather {
 
 	public void setMain(String main) {
 		this.main = main;
+	}
+	
+	public Integer getDaysNumber() {
+		Calendar cal = Calendar.getInstance();
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		return 9 - dayOfWeek;
 	}
 
 }

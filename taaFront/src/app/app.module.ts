@@ -9,11 +9,13 @@ import { NewAccountComponentComponent } from './new-account-component/new-accoun
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'new-account', component: NewAccountComponentComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'user/:id', component: UserComponent }
+  { path: 'user/:id', component: UserComponent },
+  { path: 'edit-account/:id', component: EditAccountComponent }
 ]
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     LoginComponentComponent,
     NewAccountComponentComponent,
     MainComponent,
-    UserComponent
+    UserComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,

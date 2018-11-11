@@ -16,17 +16,17 @@ export class NewAccountComponentComponent implements OnInit {
   lastName = '';
   email = '';
   password = '';
-  selectedPlace: PlaceInterface[];
-  places: PlaceInterface[];
+  selectedPlace: PlaceInterface[] = [];
+  places: PlaceInterface[] = [];
   placeDropdownSettings = {};
-  selectedSports: ISport[];
-  sports: ISport[];
+  selectedSports: ISport[] = [];
+  sports: ISport[] = [];
   sportDropdownSettings = {};
   constructor(private personService: PersonServiceService, private placeService: PlaceServiceService, private sportService: SportServiceService, private router: Router) { }
 
   handleSignUp() {
     if ((this.firstName.length > 0) && (this.lastName.length > 0) && (this.email.length > 0) && (this.password.length > 0)) {
-      console.log("place: " , this.selectedPlace[0])
+      console.log("place: ", this.selectedPlace[0])
       this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlace[0], this.selectedSports).subscribe(
         response => this.router.navigateByUrl(""),
         err => console.log("err: ", err)
@@ -39,7 +39,7 @@ export class NewAccountComponentComponent implements OnInit {
     this.getAllSports()
     this.placeDropdownSettings = {
       singleSelection: true,
-      text: "Select Place",
+      text: "Select City",
       enableSearchFilter: true,
       classes: "myclass custom-class"
     };
@@ -62,10 +62,11 @@ export class NewAccountComponentComponent implements OnInit {
   }
 
   getAllSports() {
-    this.sportService.getAllSports().subscribe((data: ISport[]) => {
+    this.sportService.getAllSports().subscribe(
+      (data: ISport[]) => {
       this.sports = data;
-      console.log("data: ", this.sports)
-    }, err => { console.log(err.message) })
+    }, 
+    err => { console.log(err.message) })
   }
 
 }
