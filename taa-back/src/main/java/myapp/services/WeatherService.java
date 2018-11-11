@@ -1,5 +1,8 @@
 package myapp.services;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -26,14 +29,18 @@ import myapp.weatherApi.WeatherApi;
 public class WeatherService {
 //	EntityManager manager = EntityManagerHelper.getEntityManager();
 	
-	private WeatherApi weather = new WeatherApi();
+	@Autowired
+	private WeatherApi weatherApi;
+	@Autowired
+	private Weather weather;
 
 	@GetMapping(value = "/city/{city}")
 //	@ApiOperation("get weather with spicific id")
 	@ApiResponse(code=200,message="Ok",response=WeatherApi.class)
 	
 	public List<Weather> getWeather(@PathVariable("city") String city)throws UnirestException {
-		List<Weather> result = weather.getListWeather(city);
+		Integer daysNumber = weather.getDaysNumber();
+		List<Weather> result = weatherApi.getListWeather(city, daysNumber);
 		//System.out.println(result);
 		return result;
 	}
