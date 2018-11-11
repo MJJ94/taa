@@ -3,7 +3,8 @@ package myapp.services;
 
 import java.util.List;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +27,7 @@ import myapp.weatherApi.WeatherApi;
 @Api(value= "WeatherServiceApi", produces= MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin
 public class WeatherService {
-//	EntityManager manager = EntityManagerHelper.getEntityManager();
+	private static final Logger log = LoggerFactory.getLogger(WeatherService.class);
 	
 	@Autowired
 	private WeatherApi weatherApi;
@@ -38,9 +39,9 @@ public class WeatherService {
 	@ApiResponse(code=200,message="Ok",response=WeatherApi.class)
 	
 	public List<Weather> getWeather(@PathVariable("city") String city)throws UnirestException {
+		log.info("Getting " + city + " weather");
 		Integer daysNumber = weather.getDaysNumber();
 		List<Weather> result = weatherApi.getListWeather(city, daysNumber);
-		//System.out.println(result);
 		return result;
 	}
 }

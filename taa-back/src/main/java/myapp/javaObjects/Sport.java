@@ -1,21 +1,20 @@
 package myapp.javaObjects;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Sport{
+public class Sport {
 	/**
 	* 
 	*/
-    @Id
-    @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
 
-    private int covered;
-    
+	private int covered;
+
 	private String name;
 
 	public Sport() {
@@ -25,7 +24,7 @@ public class Sport{
 	public Sport(String name) {
 		this.name = name;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
