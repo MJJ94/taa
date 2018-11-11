@@ -21,13 +21,11 @@ export class UserComponent implements OnInit {
     this.personService.findPersonById(id).subscribe(
       (res: Iperson) => {
         this.user = res
-        console.log("sports: ", this.user)
         this.weatherService.getWeather(res.place.name).subscribe(
           (res: IWeather[]) => {
-            console.log(res)
             let saturday = res[0];
             let sunday = res[1];
-            if (saturday.main === "Rain") {
+            if ((saturday.main === "Rain") || (saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
                   this.saturdaySports.push({ name: sport.name })
@@ -36,7 +34,7 @@ export class UserComponent implements OnInit {
             } else {
               this.saturdaySports = this.user.sports
             }
-            if (sunday.main === "Rain") {
+            if (sunday.main === "Rain" || (saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
                   this.sundaySports.push({ name: sport.name })
