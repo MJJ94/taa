@@ -56,6 +56,7 @@ export class UserComponent implements OnInit {
   }
 
   editHandler() {
+    console.log(this.user);
     this.router.navigate(['/edit-account', this.user.id])
   }
 

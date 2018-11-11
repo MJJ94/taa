@@ -9,5 +9,5 @@ export class SportServiceService {
 
   constructor(private http: HttpClient) { }
  getAllSports(){
-  return this.http.get<[ISport]>("http://localhost:8080/sportService/sports");
+  return this.http.get<[ISport]>("http://localhost:8080/sportService/sports/all");
   }}

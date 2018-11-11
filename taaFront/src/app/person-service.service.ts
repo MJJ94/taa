@@ -15,7 +15,7 @@ export class PersonServiceService {
         'Authorization': 'my-auth-token'
       })
     }
-    return this.http.post("http://localhost:8080/personService/person", { "firstName": firstName, "lastName": lastName, "place": selectedPlace, "sports": selectedSports, "email": email, "password": password });
+    return this.http.post("http://localhost:8080/personService/person/add", { "firstName": firstName, "lastName": lastName, "place": selectedPlace, "sports": selectedSports, "email": email, "password": password });
   }
 
   updatePerson(firstName, lastName, email, password, selectedPlace, selectedSports, id) {
@@ -34,6 +34,6 @@ export class PersonServiceService {
   }
 
   findPersonById(id) {
-    return this.http.get("http://localhost:8080/personService/" + id);
+    return this.http.get("http://localhost:8080/personService/id/" + id);
   }
 }

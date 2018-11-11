@@ -42,6 +42,7 @@ export class EditAccountComponent implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     this.personService.findPersonById(id).subscribe((res: Iperson) => {
+      console.log("babababab");
       this.user = res;
       this.email = this.user.email;
       this.password = this.user.password;

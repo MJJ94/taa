@@ -4,12 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +23,6 @@ import io.swagger.annotations.ApiResponse;
 import myapp.dao.PlaceDao;
 import myapp.dao.PersonDao;
 import myapp.dao.SportDao;
-import myapp.exception.CustomException;
 import myapp.javaObjects.Person;
 
 
@@ -47,13 +42,8 @@ public class PersonService {
 	@Autowired
 	SportDao sportDao;
 
-//	@Autowired
-//	private JwtTokenProvider jwtTokenProvider;
-//	@Autowired
-//	private AuthenticationManager authenticationManager;
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	
 
 	@GetMapping(value = "/id/{id}")
 	@ApiOperation("get person with spicific id")
@@ -65,21 +55,25 @@ public class PersonService {
 	}
 
 	@GetMapping("/person/all")
+	@ApiOperation("get all person")
 	public List<Person> getAllPerson() {
 		return personDao.findAll();
 	}
 
 	@GetMapping(value = "/person/{firstName}")
+	@ApiOperation("get person with spicific firstname")
 	public boolean existsByFirstName(@PathVariable("firstName") String firstName) {
 		return personDao.existsByFirstName(firstName);
 	}
 
 	@PostMapping("/person/add")
+	@ApiOperation("add a new person")
 	public void addPerson(@RequestBody Person p) {
 		personDao.save(p);
 	}
 
 	@DeleteMapping("/person/delete")
+	@ApiOperation("delete a person")
 	public void deletePerson(@RequestBody Person p) {
 		personDao.delete(p);
 

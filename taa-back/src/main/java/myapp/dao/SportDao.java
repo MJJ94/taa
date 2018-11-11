@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import myapp.javaObjects.Person;
 import myapp.javaObjects.Sport;
 
 @Transactional
