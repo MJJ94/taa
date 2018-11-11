@@ -49,7 +49,6 @@ public class SportService {
 	@GetMapping(value = "/name/{name}")
 	@ApiOperation("get sport with spicific name")
 	public Sport getSportByName(@PathVariable("name") String name) {
-		// sportDao.giveSportNautique();
 		Sport sport = sportDao.findByName(name);
 		return sport;
 	}
