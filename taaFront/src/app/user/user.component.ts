@@ -14,6 +14,8 @@ export class UserComponent implements OnInit {
   user: Iperson
   saturdaySports = [];
   sundaySports = []
+  saturday: IWeather
+  sunday: IWeather
   constructor(private activatedRoute: ActivatedRoute, private personService: PersonServiceService, private router: Router, private weatherService: WeatherServiceService) { }
 
   ngOnInit() {
@@ -21,23 +23,23 @@ export class UserComponent implements OnInit {
     this.personService.findPersonById(id).subscribe(
       (res: Iperson) => {
         this.user = res
-        this.weatherService.getWeather(res.place.name).subscribe(
+        this.weatherService.getWeather(res.place.itemName).subscribe(
           (res: IWeather[]) => {
-            let saturday = res[0];
-            let sunday = res[1];
-            if ((saturday.main === "Rain") || (saturday.main === "Snow")) {
+            this.saturday = res[0];
+            this.sunday = res[1];
+            if ((this.saturday.main === "Rain") || (this.saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
-                  this.saturdaySports.push({ name: sport.name })
+                  this.saturdaySports.push({ itemName: sport.itemName })
                 }
               })
             } else {
               this.saturdaySports = this.user.sports
             }
-            if (sunday.main === "Rain" || (saturday.main === "Snow")) {
+            if (this.sunday.main === "Rain" || (this.saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
-                  this.sundaySports.push({ name: sport.name })
+                  this.sundaySports.push({ itemName: sport.itemName })
                 }
               })
             } else {

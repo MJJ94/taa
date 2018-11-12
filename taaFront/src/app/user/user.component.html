@@ -1,29 +1,29 @@
 <div class="parent">
   <p class="text1">
-    hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.name}} are :
+    hello {{user?.firstName}} {{user?.lastName}} our selection for your sports in {{user?.place.itemName}} are :
   </p>
   <div class="tableDiv">
     <table class="leftTable">
       <thead>
         <tr>
-          <td class="header">Saturday</td>
+          <td class="header">Saturday {{saturday.main}}</td>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let sport of saturdaySports">
-          <td class="bodyLine">{{sport.name}}</td>
+          <td class="bodyLine">{{sport.itemName}}</td>
         </tr>
       </tbody>
     </table>
     <table class="rightTable">
       <thead>
         <tr>
-          <td class="header">Sunday</td>
+          <td class="header">Sunday {{sunday.main}}</td>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let sport of sundaySports">
-          <td class="bodyLine">{{sport.name}}</td>
+          <td class="bodyLine">{{sport.itemName}}</td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +40,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let sport of user.sports">
-          <td class="bodyLine">{{sport.name}}</td>
+          <td class="bodyLine">{{sport.itemName}}</td>
         </tr>
       </tbody>
     </table>

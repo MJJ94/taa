@@ -137,7 +137,7 @@ public class Person {
 
 	@Override
     public String toString() {
-        return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", place= " + this.place.getName();
+        return "Personne [id=" + id + ", name=" + firstName + " " + lastName + ", place= " + this.place.getItemName();
 
     }
 }

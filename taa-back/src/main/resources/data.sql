@@ -6,11 +6,11 @@ INTO TABLE place
 FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-(id, name);
+(id, item_name);
 
 LOAD DATA LOCAL INFILE '/home/mj/taa-workspace/taa/taa-back/src/main/resources/sports.csv'
 INTO TABLE sport
 FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-(id, name, covered);
+(id, item_name, covered);

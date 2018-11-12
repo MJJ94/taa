@@ -15,14 +15,14 @@ public class Sport {
 
 	private int covered;
 
-	private String name;
+	private String itemName;
 
 	public Sport() {
 		super();
 	}
 
-	public Sport(String name) {
-		this.name = name;
+	public Sport(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public Long getId() {
@@ -33,12 +33,12 @@ public class Sport {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public int getCovered() {
