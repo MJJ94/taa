@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
-import {MultiSelectModule} from 'primeng/multiselect';
+
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'new-account', component: NewAccountComponentComponent },
@@ -33,7 +33,6 @@ const appRoutes: Routes = [
     AngularMultiSelectModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    MultiSelectModule
     ],
   providers: [],
   bootstrap: [AppComponent]
