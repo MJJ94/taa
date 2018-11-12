@@ -89,7 +89,7 @@ public class Person {
         this.id = id;
     }
     
-    @Column(nullable= false)
+    @Column(nullable= false, unique=true)
     public String getEmail() {
 		return email;
 	}

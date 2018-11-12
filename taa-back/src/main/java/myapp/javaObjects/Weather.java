@@ -34,10 +34,16 @@ public class Weather {
 		this.main = main;
 	}
 	
+	public Integer getDaysNumber(Integer day) {
+		Calendar cal = Calendar.getInstance();
+		int dayOfWeek = cal.get(day);
+		return 9 - dayOfWeek;
+	}
+	
 	public Integer getDaysNumber() {
 		Calendar cal = Calendar.getInstance();
-		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-		return 9 - dayOfWeek;
+		Integer dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		return getDaysNumber(dayOfWeek);
 	}
 
 }
