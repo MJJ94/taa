@@ -21,3 +21,8 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.warning {
+    color: red;
+    font-weight: bold
+}

@@ -16,6 +16,7 @@ export class NewAccountComponentComponent implements OnInit {
   lastName = '';
   email = '';
   password = '';
+  emailExist = false;
   selectedPlace: PlaceInterface[] = [];
   places: PlaceInterface[] = [];
   placeDropdownSettings = {};
@@ -29,7 +30,9 @@ export class NewAccountComponentComponent implements OnInit {
       console.log("place: ", this.selectedPlace[0])
       this.personService.addPerson(this.firstName, this.lastName, this.email, this.password, this.selectedPlace[0], this.selectedSports).subscribe(
         response => this.router.navigateByUrl(""),
-        err => console.log("err: ", err)
+        err => {
+          this.emailExist = true;
+          console.log("err: ", err)}
       )
     }
   }
