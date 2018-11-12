@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
             if ((this.saturday.main === "Rain") || (this.saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
-                  this.saturdaySports.push({ name: sport.itemName })
+                  this.saturdaySports.push({ itemName: sport.itemName })
                 }
               })
             } else {
@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
             if (this.sunday.main === "Rain" || (this.saturday.main === "Snow")) {
               this.user.sports.map((sport) => {
                 if (sport.covered === 1) {
-                  this.sundaySports.push({ name: sport.itemName })
+                  this.sundaySports.push({ itemName: sport.itemName })
                 }
               })
             } else {

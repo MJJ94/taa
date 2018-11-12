@@ -20,7 +20,7 @@ public class Schedulerapp {
 	
 	
 
-	@Scheduled(cron = "* * * * * *" )
+	//@Scheduled(cron = "* * * * * *" )
 	public void work() {
 			
 		sendSimpleMessage("person", "test", "text");
@@ -48,7 +48,7 @@ public class Schedulerapp {
 			mailSender.setPort(587);
 
 			mailSender.setUsername("moumouhi94@gmail.com");
-			mailSender.setPassword("94@mouhi");
+			mailSender.setPassword("");
 
 			Properties props = mailSender.getJavaMailProperties();
 			props.put("mail.transport.protocol", "smtp");
