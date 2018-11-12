@@ -15,10 +15,15 @@
   <br>
   Email*:
   <br>
-  <input class="input" type="text" [(ngModel)]="email" name="email" required #emal="ngModel">
+  <input class="input" type="text" [(ngModel)]="email.value" name="email" required #emal="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
   <div *ngIf="emal.errors?.required">
+
     Email is required.
   </div>
+  <div *ngIf="emal.errors && emal.errors.pattern">
+    Email is invalid
+  </div>
+
   <br>
   Password*:
   <br>
@@ -30,7 +35,7 @@
     Password is required.
   </div>
   <br>
-  Choose a city: 
+  Choose a city:
   <br>
   <angular2-multiselect [data]="places" [(ngModel)]="selectedPlace" [settings]="placeDropdownSettings" name="selectedPlace">
     <c-item>
@@ -40,7 +45,7 @@
     </c-item>
   </angular2-multiselect>
   <br>
-  Choose a sport: 
+  Choose a sport:
   <br>
   <angular2-multiselect [data]="sports" [(ngModel)]="selectedSports" [settings]="sportDropdownSettings" name="selectedSports">
     <c-item>
