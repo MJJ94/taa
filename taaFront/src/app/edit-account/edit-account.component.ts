@@ -46,10 +46,10 @@ export class EditAccountComponent implements OnInit {
       this.user = res;
       this.email = this.user.email;
       this.password = this.user.password;
-      console.log(this.user.sports[0].name)
+      console.log(this.user.sports[0].itemName)
       this.selectedPlace.push(this.user.place);
       this.user.sports.map((sport) => {
-        this.selectedSports.push({id:sport.id, name:sport.name, covered:sport.covered})
+        this.selectedSports.push({id:sport.id, itemName:sport.itemName, covered:sport.covered})
       })
     })
     this.getAllPlaces()

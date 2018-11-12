@@ -35,7 +35,7 @@
   <angular2-multiselect [data]="places" [(ngModel)]="selectedPlace" [settings]="placeDropdownSettings" name="selectedPlace">
     <c-item>
       <ng-template let-item="item">
-        <label>{{item.name}}</label>
+        <label>{{item.itemName}}</label>
       </ng-template>
     </c-item>
   </angular2-multiselect>
@@ -45,7 +45,7 @@
   <angular2-multiselect [data]="sports" [(ngModel)]="selectedSports" [settings]="sportDropdownSettings" name="selectedSports">
     <c-item>
       <ng-template let-item="item">
-        <label>{{item.name}}</label>
+        <label>{{item.itemName}}</label>
       </ng-template>
     </c-item>
   </angular2-multiselect>

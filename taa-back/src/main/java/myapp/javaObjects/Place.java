@@ -14,14 +14,14 @@ public class Place{
     @GeneratedValue
 	private Long id;
 
-	    private String name;
+	    private String itemName;
 
 	    public Place() {
 	        super();
 	    }
 
-	    public Place(String name) {
-	        this.name = name;
+	    public Place(String itemName) {
+	        this.itemName = itemName;
 	    }
 
 	    public Long getId() {
@@ -32,11 +32,11 @@ public class Place{
 	        this.id = id;
 	    }
 
-	    public String getName() {
-	        return name;
+	    public String getItemName() {
+	        return itemName;
 	    }
 
-	    public void setName(String name) {
-	        this.name = name;
+	    public void setItemName(String itemName) {
+	        this.itemName = itemName;
 	    }
 }

@@ -56,14 +56,14 @@ public class PlaceService {
 	@PostMapping("/place/add")
 	@ApiOperation("add a new place")
 	public void addPlace(@RequestBody Place l) {
-		log.info("Adding new place: " + l.getName());
+		log.info("Adding new place: " + l.getItemName());
 		placeDao.save(l);
 	}
 
 	@DeleteMapping("/place/add")
 	@ApiOperation("delete a place")
 	public void deletePlace(@RequestBody Place l) {
-		log.info("Deleting " + l.getName());
+		log.info("Deleting " + l.getItemName());
 		placeDao.delete(l);
 
 	}
