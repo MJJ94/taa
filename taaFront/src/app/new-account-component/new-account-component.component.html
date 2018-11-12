@@ -2,36 +2,40 @@
   First name*:
   <br>
   <input class="input" type="text" [(ngModel)]="firstName" name="firstName" required #firstname="ngModel">
-  <div *ngIf="firstname.errors?.required">
+  <div class="warning" *ngIf="firstname.errors?.required">
     First name is required.
   </div>
   <br>
   Last name*:
   <br>
   <input class="input" type="text" [(ngModel)]="lastName" name="lastName" required #lastname="ngModel">
-  <div *ngIf="lastname.errors?.required">
+  <div class="warning" *ngIf="lastname.errors?.required">
     Last name is required.
   </div>
   <br>
   Email*:
   <br>
   <input class="input" type="text" [(ngModel)]="email" name="email" required #emal="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-  <div *ngIf="emal.errors?.required">
+  <div class="warning" *ngIf="emal.errors?.required">
 
     Email is required.
   </div>
-  <div *ngIf="emal.errors && emal.errors.pattern">
+  <div class="warning" *ngIf="emal.errors && emal.errors.pattern">
     Email is invalid
+  </div>
+
+  <div class="warning" *ngIf="emailExist">
+    You have already an account with this email: {{email}}
   </div>
 
   <br>
   Password*:
   <br>
   <input class="input" type="password" [(ngModel)]="password" name="password" required minlength="5" #pasword="ngModel">
-  <div *ngIf="pasword.errors?.minlength">
+  <div class="warning" *ngIf="pasword.errors?.minlength">
     Password must be at least 6 characters long.
   </div>
-  <div *ngIf="pasword.errors?.required">
+  <div class="warning" *ngIf="pasword.errors?.required">
     Password is required.
   </div>
   <br>
