@@ -1,5 +1,6 @@
 package myapp.scheduler;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -12,8 +13,14 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+import io.swagger.annotations.Authorization;
 import myapp.dao.PersonDao;
 import myapp.javaObjects.Person;
+import myapp.javaObjects.Weather;
+import myapp.services.WeatherService;
+import myapp.weatherApi.WeatherApi;
 
 
 
@@ -24,20 +31,25 @@ public class Schedulerapp {
 	@Autowired
 	PersonDao personDao;
 	
+	@Autowired
+	WeatherApi weatherApi;
+	
+	@Autowired
+	Weather weather;
 	
 	
-	
-	
-
 	//@Scheduled(cron = "0 0 0 * * TUE" )
 	//@Scheduled(cron = "0 * * * * *" )
-	public void work() {
+	public void work() throws UnirestException {
 		
 		List<Person> persons =  personDao.findAll();
 		
+		
+		
 		for(Person p:persons) {
 			
-		sendSimpleMessage(p.getEmail(), "test", "text");
+		List<Weather> weathers = weatherApi.getListWeather(p.getPlace().getItemName(), weather.getDaysNumber(Calendar.TUESDAY));
+		sendSimpleMessage(p.getEmail(), "test","" );
 		
 		}
 		
