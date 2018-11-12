@@ -22,9 +22,7 @@ import io.swagger.annotations.ApiOperation;
 
 import io.swagger.annotations.ApiResponse;
 
-import myapp.dao.PlaceDao;
 import myapp.dao.PersonDao;
-import myapp.dao.SportDao;
 import myapp.javaObjects.Person;
 
 
@@ -36,16 +34,7 @@ public class PersonService {
 	private static final Logger log = LoggerFactory.getLogger(PersonService.class);
 
 	@Autowired
-	PersonDao personDao;
-
-	@Autowired
-	PlaceDao placeDao;
-
-	@Autowired
-	SportDao sportDao;
-
-
-	
+	private PersonDao personDao;
 
 	@GetMapping(value = "/id/{id}")
 	@ApiOperation("get person with spicific id")

@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import myapp.dao.PlaceDao;
-import myapp.dao.PersonDao;
 import myapp.dao.SportDao;
 
 import myapp.javaObjects.Sport;
@@ -33,13 +31,7 @@ public class SportService {
 	private static final Logger log = LoggerFactory.getLogger(SportService.class);
 
 	@Autowired
-	SportDao sportDao;
-
-	@Autowired
-	PersonDao personneDao;
-
-	@Autowired
-	PlaceDao lieuDao;
+	private SportDao sportDao;
 
 	@GetMapping(value = "/id/{id}")
 	@ApiOperation("get sport with spicific id")

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import myapp.dao.PlaceDao;
-import myapp.dao.PersonDao;
 import myapp.javaObjects.Place;
 
 @RestController
@@ -30,10 +29,7 @@ public class PlaceService {
 	private static final Logger log = LoggerFactory.getLogger(PlaceService.class);
 
 	@Autowired
-	PlaceDao placeDao;
-
-	@Autowired
-	PersonDao personneDao;
+	private PlaceDao placeDao;
 
 	@GetMapping(value = "/id/{id}")
 	@ApiOperation("get place with spicific id")
