@@ -1,5 +1,6 @@
 package myapp.scheduler;
 
+import java.util.List;
 import java.util.Properties;
 
 
@@ -11,19 +12,34 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import myapp.dao.PersonDao;
+import myapp.javaObjects.Person;
+
 
 
 
 @Component
 public class Schedulerapp {
 
+	@Autowired
+	PersonDao personDao;
+	
+	
+	
 	
 	
 
+	@Scheduled(cron = "0 0 0 * * TUE" )
 	@Scheduled(cron = "* * * * * *" )
 	public void work() {
+		
+		List<Person> persons =  personDao.findAll();
+		
+		for(Person p:persons) {
 			
-		sendSimpleMessage("person", "test", "text");
+		sendSimpleMessage(p.getEmail(), "test", "text");
+		
+		}
 		
 	
 	}
@@ -47,8 +63,8 @@ public class Schedulerapp {
 			mailSender.setHost("smtp.gmail.com");
 			mailSender.setPort(587);
 
-			mailSender.setUsername("moumouhi94@gmail.com");
-			mailSender.setPassword("94@mouhi");
+			mailSender.setUsername("projettaa.gli@gmail.com");
+			mailSender.setPassword("taagli2018");
 
 			Properties props = mailSender.getJavaMailProperties();
 			props.put("mail.transport.protocol", "smtp");
