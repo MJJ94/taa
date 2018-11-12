@@ -15,7 +15,7 @@
   <br>
   Email*:
   <br>
-  <input class="input" type="text" [(ngModel)]="email.value" name="email" required #emal="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+  <input class="input" type="text" [(ngModel)]="email" name="email" required #emal="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
   <div *ngIf="emal.errors?.required">
 
     Email is required.

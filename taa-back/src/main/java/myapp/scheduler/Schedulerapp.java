@@ -30,7 +30,7 @@ public class Schedulerapp {
 	
 
 	//@Scheduled(cron = "0 0 0 * * TUE" )
-	@Scheduled(cron = "0 * * * * *" )
+	//@Scheduled(cron = "0 * * * * *" )
 	public void work() {
 		
 		List<Person> persons =  personDao.findAll();
