@@ -50,7 +50,13 @@ Pour lancer l'application il suffit d'éxecuter la commande `ng serve`. L'applic
 
 ### Les componants
 
-* App : 
+* App : Le componant de rooting.
+
+* main : Le componant parent.
+* Login : La page qui permette aux utilisateurs de s'identifier. 
+* new-account : La page qui permette aux nouveaux utilisateurs de créer un nouveau compte. 
+* user : Ce componant permet l'affichage des informations d'utilisateur identifier et elle permet aussi de modifier les informations grâce au compnant `edit-account`.
+* edit-account : La page qui permette aux utilisateurs de modifier leurs propres informations.
 
 
 
