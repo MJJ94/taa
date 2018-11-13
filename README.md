@@ -9,6 +9,7 @@ La partie back a été implémentée en Spring, nous avons essayé d'utiliser pl
 ### Lancement de l'application: 
 
 Tout d'abord il faut installer et Builder l'application via Maven. 
+
 Vous devez aussi changer le chemin dans le Data.sql pour récupérer les fichiers csv qui se trouvent dans le dossier ressources. 
 
 Vous pouvez lancer l'application depuis l'IDE de votre choix, le serveur se lance sur le port 8080.
