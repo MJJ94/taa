@@ -9,6 +9,7 @@ La partie back a été implémentée en Spring, nous avons essayé d'utiliser pl
 ### Lancement de l'application: 
 
 Tout d'abord il faut installer et Builder l'application via Maven. 
+Vous devez aussi changer le chemin dans le Data.sql pour récupérer les fichiers csv qui se trouvent dans le dossier ressources. 
 
 Vous pouvez lancer l'application depuis l'IDE de votre choix, le serveur se lance sur le port 8080.
 
@@ -35,9 +36,15 @@ L'api Rest a été implémenté vie sping avec les annotations @RestController. 
 
 Pour la partie sécurité nous avons ajouté une configuration qui est complémentement ouverte.
 
+### Scheduler
+
+Pour prévenir les utilisateurs du sports qui peuvent pratiquer le weekend, nous avons créé une classe scheduler qui envois un mail à chaque person avec les infos requises tous les mardi.  
+
 ## TaaFront
 
 
 ### Lancement de l'application: 
+
+Pour lancer l'application il suffit d'éxecuter la commande "ng serve". L'application se lance sur le port 4200. 
 
 
