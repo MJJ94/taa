@@ -48,4 +48,12 @@ Pour prévenir les utilisateurs du sports qui peuvent pratiquer le weekend, nous
 
 Pour lancer l'application il suffit d'éxecuter la commande `ng serve`. L'application se lance sur le port 4200. 
 
+### Les componants
+
+* App : 
+
+
+
+
+
 
